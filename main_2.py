@@ -13,7 +13,7 @@ def logger(path):
                     f'Имя функции {old_function},\n'
                     f'Аргументы {args, kwargs},\n'
                     f'Результат {result}')
-            with open(path, 'w') as f:
+            with open(path, 'w', encoding='utf-8') as f:
                 f.write(data)
             return result
         return new_function
@@ -52,7 +52,7 @@ def test_2():
 
         assert os.path.exists(path), f'файл {path} должен существовать'
 
-        with open(path) as log_file:
+        with open(path, encoding='utf-8') as log_file:
             log_file_content = log_file.read()
 
         assert 'summator' in log_file_content, 'должно записаться имя функции'

@@ -11,9 +11,14 @@ def logger(old_function):
         data = (f'Время вызова функции {start},\n'
                 f'Имя функции {old_function},\n'
                 f'Аргументы {args, kwargs},\n'
-                f'Результат {result}')
-        with open('main.log', 'w') as f:
-            f.write(data)
+                f'Результат {result}\n\n')
+        path = 'main.log'
+        if os.path.exists(path):
+            with open(path, 'a', encoding='utf-8') as f:
+                f.write(data)
+        else:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(data)
         return result
     return new_function
 
@@ -44,10 +49,10 @@ def test_1():
 
     assert os.path.exists(path), 'файл main.log должен существовать'
 
-    summator(a=0, b=0)
     summator(4.3, b=2.2)
+    summator(a=0, b=0)
 
-    with open(path) as log_file:
+    with open(path, encoding='utf-8') as log_file:
         log_file_content = log_file.read()
 
     assert 'summator' in log_file_content, 'должно записаться имя функции'
