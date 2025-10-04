@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+venv/
+ENV/
+env/
+.venv/
+ENVs/
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Windows OS файлы
+Thumbs.db
+Thumbs.db?
+Desktop.ini
+$RECYCLE.BIN/
+System Volume Information/
+*.lnk
+
+# Виртуальные окружения и артефакты сборки
+*.log
+*.cache
+*.mypy_cache/
+.dmypy.json
+*.wheel
